@@ -40,6 +40,11 @@ input[type=button] {
     background-color: #202020;
 }
 
+#on {
+    background-color: #14EFFF;
+    color: #202020;
+}
+
 .controls p {
     font-size: 18px;
     margin: 20px 0;
@@ -66,4 +71,22 @@ input[type=range] {
     height: 3px;
     width: 25px;
     margin: 3px 0;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: fit-content;
+  margin: 100px auto;
+  border: 15px solid #202020;
+  background-color: #FFF;
+}
+
+.row-div {
+    display: flex;
+}
+
+.grid-squares {
+    border: 0.5px solid #202020;
 }
