@@ -4,7 +4,7 @@ let penColor = pen.value;
 let background = document.querySelector('#background-color');
 let squareBackgroundColor = background.value;
 let draw = true;
-let eraserButton = false;
+let eraser = false;
 let rainbow = false;
 
 pen.addEventListener('change', () => {
@@ -57,14 +57,33 @@ window.addEventListener('resize', () => {
 })
 
 let fillColorButton = document.querySelector('.color-fill');
+let eraserButton = document.querySelector('.eraser');
 
 fillColorButton.addEventListener('click', () => {
-    if (fillColorButton.id === 'on'){
+    if (draw){
         fillColorButton.id = 'off';
         draw = false;
     } else {
         fillColorButton.id = 'on';
         draw = true;
+        if (eraser){
+            eraserButton.id = 'off'
+            eraser = false;
+        }
+    }
+})
+
+eraserButton.addEventListener('click', () => {
+    if (eraser){
+        eraserButton.id = 'off';
+        draw = true;
+        eraser = false;
+        fillColorButton.id = 'on';
+    } else {
+        eraserButton.id = 'on';
+        draw = false;
+        eraser = true;
+        fillColorButton.id = 'off';
     }
 })
 
@@ -75,6 +94,8 @@ gridSquares.forEach((square) => {
             if (!rainbow){
                 square.style.backgroundColor = penColor;
             }
+        } else if (eraser){
+            square.style.backgroundColor = squareBackgroundColor;
         }
     })
 })
