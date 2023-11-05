@@ -5,6 +5,7 @@ let background = document.querySelector('#background-color');
 let squareBackgroundColor = background.value;
 let isDrawing = false;
 let draw = true;
+let isDrawingTouch = false;
 let eraser = false;
 let rainbow = false;
 
@@ -55,19 +56,40 @@ function addDrawingFunctionality(){
     gridSquares.forEach((square) => {
         square.addEventListener('mousedown', () => {
             isDrawing = true;
+        });
+
+        square.addEventListener('touchstart', () => {
+            isDrawingTouch = true;
         })
     })
 
     gridSquares.forEach((square) => {
         square.addEventListener('mouseup', () => {
             isDrawing = false;
-        })
+        });
 
+        square.addEventListener('touchend', () => {
+            isDrawingTouch = false;
+        });
     });
 
     gridSquares.forEach((square) => {
         square.addEventListener('mousemove', () => {
             if (isDrawing){
+                if (draw){
+                    if (!rainbow){
+                        square.style.backgroundColor = penColor;
+                    } else {
+                        square.style.backgroundColor = getRandomColor();
+                    }
+                } else if (eraser){
+                    square.style.backgroundColor = squareBackgroundColor;
+                }
+            }
+        });
+
+        square.addEventListener('touchmove', () => {
+            if (isDrawingTouch){
                 if (draw){
                     if (!rainbow){
                         square.style.backgroundColor = penColor;
