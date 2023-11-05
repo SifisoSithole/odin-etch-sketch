@@ -69,6 +69,15 @@ fillColorButton.addEventListener('click', () => {
 })
 
 let gridSquares = document.querySelectorAll('.grid-squares');
+gridSquares.forEach((square) => {
+    square.addEventListener('click', () => {
+        if (draw){
+            if (!rainbow){
+                square.style.backgroundColor = penColor;
+            }
+        }
+    })
+})
 
 background.addEventListener('change', () => {
     let gridContainer = document.querySelector('.grid-container');
