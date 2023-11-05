@@ -18,34 +18,38 @@
         </div>
     </header>
 
-    <div class="controls">
-        <div class="pen-color-control">
-            <input type="color" id="pen-color" value="#000000">
-            <p>Pen Color</p>
+    <div class="sketch-container">
+
+        <div class="controls">
+            <div class="pen-color-control">
+                <input type="color" id="pen-color" value="#000000">
+                <p>Pen Color</p>
+            </div>
+
+            <div class="background-color-control">
+                <input type="color" id="background-color" value="#FFFFFF">
+                <p>Background Color</p>
+            </div>
+
+            <input type="button" value="Color Fill" class="color-fill" id="on">
+
+            <input type="button" value="Eraser" class="eraser" id="off">
+
+            <input type="button" value="Rainbow" class="rainbow" id="off">
+
+            <input type="range" min="4" max="100" value="16" id="grid-size">
+
+            <p>Grid Size: <span class="size">16</span> X <span class="size">16</span></p>
+
+            <input type="button" value="Gridlines" class="grid-lines" id="on">
+
+            <input type="button" value="Clear" id="clear">
         </div>
 
-        <div class="background-color-control">
-            <input type="color" id="background-color" value="#FFFFFF">
-            <p>Background Color</p>
+        <div class="grid-container">
+            
         </div>
-
-        <input type="button" value="Color Fill" class="color-fill" id="on">
-
-        <input type="button" value="Eraser" class="eraser" id="off">
-
-        <input type="button" value="Rainbow" class="rainbow" id="off">
-
-        <input type="range" min="4" max="100" value="16" id="grid-size">
-
-        <p>Grid Size: <span class="size">16</span> X <span class="size">16</span></p>
-
-        <input type="button" value="Gridlines" class="grid-lines" id="on">
-
-        <input type="button" value="Clear">
     </div>
 
-    <div class="grid-container">
-        
-    </div>
 </body>
 </html>
